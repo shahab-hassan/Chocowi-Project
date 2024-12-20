@@ -1,0 +1,15 @@
+export const states = [
+    { name: "Alberta", tax: 5 },
+    { name: "British Columbia", tax: 12 },
+    { name: "Manitoba", tax: 12 },
+    { name: "New Brunswick", tax: 15 },
+    { name: "Newfoundland and Labrador", tax: 15 },
+    { name: "Northwest Territories", tax: 5 },
+    { name: "Nova Scotia", tax: 15 },
+    { name: "Nunavut", tax: 5 },
+    { name: "Ontario", tax: 13 },
+    { name: "Quebec", tax: 15 },
+    { name: "Prince Edward Island", tax: 15 },
+    { name: "Saskatchewan", tax: 11 },
+    { name: "Yukon", tax: 5 }, 
+]; 

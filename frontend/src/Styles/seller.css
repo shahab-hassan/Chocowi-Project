@@ -1,0 +1,1649 @@
+.sellerPictureUpload {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadArea {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background-color: #FFF5F5;
+  border-radius: 50%; /* Makes it circular */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.uploadArea:hover {
+  background-color: #FFE5E5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sellerUploadPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--primaryColor, #FF6B6B);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.uploadPlaceholder:hover {
+  color: #D9534F;
+}
+
+.uploadIcon {
+  font-size: 48px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.uploadPlaceholder:hover .uploadIcon {
+  transform: scale(1.1);
+}
+
+.fileInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.previewContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%; /* Ensures the image stays circular */
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* Circular image */
+}
+
+.removeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Step Indicator Styles */
+.stepIndicatorContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.stepIndicatorContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e5e7eb;
+  z-index: 1;
+}
+
+.stepDot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.stepDot.completed {
+  background: var(--primaryColor);
+  border-color: var(--primaryColor);
+}
+
+.stepDot.current {
+  border-color: var(--primaryColor);
+  background: white;
+}
+
+.stepNumber {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.stepDot.completed .stepNumber {
+  color: white;
+}
+
+.stepDot.current .stepNumber {
+  color: var(--primaryColor);
+}
+
+.stepLabel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.nextStepBtn,
+.prevStepBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.prevStepBtn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.nextStepBtn {
+  background: var(--primaryColor);
+  border: none;
+  color: white;
+}
+
+.prevStepBtn:hover {
+  background: #f9fafb;
+}
+
+.nextStepBtn:hover {
+  background: #4338ca;
+}
+
+
+
+  /* Active Orders Styles */
+.activeOrdersContainer {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 24px 0px;
+  background-color: white;
+}
+
+.activeOrdersWrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+  gap: 20px;
+}
+
+.activeOrdersWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.activeOrderCard {
+  flex: 0 0 auto;
+  width: 340px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.activeOrderImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.activeOrderTitle {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+/*sellerPostings*/
+.sellerPostingsContainer {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+
+.tableContainer {
+  background-color: white;
+  overflow: hidden;
+}
+
+.postingsMainTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.postingsTableHeader th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 500;
+  color: #666;
+  font-size: 14px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.postingsTableRow {
+  transition: background-color 0.2s;
+}
+
+.postingsTableRow:hover {
+  background-color: #fafafa;
+}
+
+.postingsTableRow td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.postingsProductCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.postingsProductImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.postingsProductName {
+  font-size: 14px;
+  color: #333;
+}
+
+.postingsMetricCell {
+  font-size: 14px;
+  color: #333;
+}
+
+.postingsActionButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.postingsEditButton,
+.postingsWithdrawButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.postingsEditButton {
+  color: #666;
+}
+
+.postingsEditButton:hover {
+  color: #333;
+}
+
+.postingsWithdrawButton {
+  color: #ff4d4f;
+}
+
+.postingsWithdrawButton:hover {
+  color: #ff7875;
+}
+
+.postingsFloatingActionButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s;
+}
+
+
+
+/* Create New Product */
+
+.createProductContainer {
+  max-width: 1000px;
+  border: 1px solid #ccc;
+  margin: 40px auto;
+
+}
+
+.createProductContent{
+  max-width: 800px;
+  margin: 0 auto;
+}
+.productFormContainer {
+  background: white;
+  padding: 32px 0px;
+  border-radius: 8px;
+}
+
+
+
+.formGroup {
+  margin-bottom: 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.wordLimit {
+  text-align: right;
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.imageUploadContainer {
+  margin: 35px 0;
+}
+
+.imageUploadBox {
+  width: 200px;
+  height: 150px;
+  background-color: #fff0f0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.uploadIcon {
+  width: 50px;
+  height: 50px;
+  fill: var(--primaryColor);
+}
+
+.quantitySection {
+  margin-bottom: 35px;
+}
+
+
+
+.quantityGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.selectField {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.cancellationSection {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cancellationLabel {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.radioGroup {
+  display: flex;
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  margin-bottom: 8px;
+}
+
+.radioButton {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background: white;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.radioButton.active {
+  background: #2d2d2d;
+  color: white;
+}
+
+
+
+.noteText {
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+}
+
+
+
+
+
+/* Additional CSS for Pricing and Variables section */
+.pricingSection {
+  background: white;
+  max-width: 800px;
+  border-radius: 8px;
+  margin: 35px auto;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.createProductSectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 24px;
+  padding:20px 40px;
+}
+
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  font-size: 18px;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.variableOptions {
+  margin-top: 20px;
+}
+
+.optionGroup {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.addOptionButton {
+  background: none;
+  border: none;
+  color: var(--primaryColor);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.removeOptionButton {
+  background: none;
+  border: none;
+  color: var(--primaryColor);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.variablesList {
+  margin-top: 20px;
+}
+
+.variableCard {
+  background: #f8f8f8;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.variableName {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.optionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.optionTag {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.optionPrice {
+  color: var(--primaryColor);
+  font-weight: 500;
+}
+
+.presetButtons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.presetButton {
+  padding: 8px 16px;
+  background: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.presetButton:hover {
+  background: #f50057;
+}
+
+
+
+.dividerText {
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+  position: relative;
+}
+
+.dividerText::before,
+.dividerText::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.dividerText::before {
+  left: 0;
+}
+
+.dividerText::after {
+  right: 0;
+}
+
+
+.variableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.removeVariableButton {
+  background: none;
+  border: none;
+  color: var(--primaryColor);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.removeVariableButton:hover {
+  background-color: rgba(255, 64, 129, 0.1);
+}
+
+.optionName {
+  font-weight: 500;
+}
+
+.optionTag {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.variableCard {
+  background: #f8f8f8;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.variableName {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+
+
+
+.locationDeliverySection {
+  margin: 35px auto;
+  max-width: 800px;
+
+}
+
+.locationContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.locationFormContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.deliveryOptionsGroup {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.deliveryFeeContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.orText {
+  color: #6b7280;
+}
+
+.discountGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.discountSection{
+  margin: 35px auto;
+  max-width: 800px;
+}
+
+
+.discountInputGroup {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.removeDiscountButton {
+  padding: 0.5rem;
+  color: #ef4444;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.removeDiscountButton:hover {
+  color: #dc2626;
+}
+
+
+
+
+
+
+
+/* Image Upload Styles */
+.mediaModalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mediaModal {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.mediaModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modalCounter {
+  font-size: 14px;
+  color: #666;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 8px;
+}
+
+.mediaContent {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 16px;
+}
+
+.mainPreview {
+  width: 100%;
+  height: 400px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mainPreviewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emptyMainPreview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.thumbnailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  height: 400px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.thumbnailContainer {
+  position: relative;
+  height: 120px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thumbnailContainer.selected {
+  border: 2px solid var(--primaryColor);
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.removeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.thumbnailContainer:hover .removeButton {
+  opacity: 1;
+}
+
+.uploadPlaceholder {
+  width: 100%;
+  height: 120px;
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.uploadPlaceholder:hover {
+  border-color: #999;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.imageGridItem {
+  position: relative;
+  height: 150px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.addImageButton {
+  width: 100%;
+  height: 150px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addImageButton:hover {
+  background: #eee;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+
+
+.nextBtnContainer{
+  margin: 30px auto;
+  display: flex;
+  justify-content: end;
+
+}
+.createProductPage .nextBtnContainer{
+  max-width: 1000px;
+}
+
+.createProductPage .mainSection{
+  max-width: 1000px;
+}
+
+
+
+
+
+/************************************Packages Page *****************************/
+.packagesContainer {
+  margin: 0 auto;
+}
+
+.packagesHeader {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.packagesTable {
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.packagesRow {
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.packagesLabel {
+  padding: 15px;
+  background-color: #f8f9fa;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: black;
+  border-right: 1px solid #e0e0e0;
+}
+
+.packageColumn {
+  padding: 15px;
+  text-align: center;
+  border-right: 1px solid #e0e0e0;
+}
+
+.packageName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.packageSubtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.packageCell {
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+.checkmarkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.checkmark {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.checkmark.active {
+  color: #4CAF50;
+}
+
+.priceRow {
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr);
+  background-color: var(--primaryColor);
+  color: white;
+}
+
+.priceCell {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-right: 1px solid var(--primaryColor);
+}
+
+
+.variablesList {
+  margin-top: 10px;
+}
+
+.variableItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #f8f9fa;
+  margin-bottom: 5px;
+}
+
+.removeVariableBtn {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modalHeader h3 {
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap : 10px;
+  margin-bottom: 20px;
+}
+
+
+/* Error states for form inputs */
+.error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.875rem;
+}
+
+
+
+
+/*seLLERtradeLead */
+.sellerTradeContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.sellerTradeCard {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.sellerCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff6b81;
+  padding: 15px 20px;
+  color: #fff;
+}
+
+.sellerProfileInfo {
+  display: flex;
+  align-items: center;
+}
+
+.sellerProfileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.sellerProfileText {
+  display: flex;
+  flex-direction: column;
+}
+
+.sellerProfileName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.sellerProfileLocation {
+  font-size: 0.9rem;
+}
+
+.sellerQuoteButton {
+  background-color: #fff;
+  color: #ff6b81;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sellerCardContent {
+  padding: 20px;
+}
+
+.sellerTradeRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sellerColumn {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.sellerColumn:last-child {
+  margin-right: 0;
+}
+
+.sellerLabel {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.sellerValue {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.sellerRequirements {
+  margin-bottom: 15px;
+}
+
+.sellerInRange {
+  text-align: center;
+  color: #ff6b81;
+}
+
+.sellerRangeCircle {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.sellerDistance {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ff6b81;
+}
+
+
+
+/* Form Styles */
+.quoteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formRow {
+  display: flex;
+  gap: 16px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+.quoteValue{
+  font-weight:bold;
+}
+
+/* Quote Message Styles */
+.quoteMessage {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+}
+
+.quoteContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quoteHeader {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.quoteDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quoteInfo {
+  display: flex;
+  gap: 16px;
+  color: #666;
+  font-size: 14px;
+}
+
+.quoteStatus {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 4px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  gap: 20px;
+  margin: 30px 0px;
+  justify-content: space-between; /* Optional: Adjust spacing */
+}
+
+.statCard {
+  flex: 1 1 calc(33.33% - 20px); /* Ensure 3 items per row with spacing */
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.statTitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.statAmount {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+.chartContainer {
+  background: white;
+
+}
+
+.chartTitle {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0px;
+  
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 350px;
+  border: 1px solid #ccc;
+  padding: 10px;
+
+}
+
+
+.salesListContainer {
+  margin-top: 30px;
+  background: white;
+  padding: 24px;
+  border: 1px solid #ccc;
+}
+
+.salesListTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.salesListFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filterWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterSelect {
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  outline: none;
+}
+
+.resetFilterButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #666;
+}
+
+.salesListTableContainer {
+  overflow-x: auto;
+}
+
+.salesListTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.salesListTable th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 500;
+  color: #666;
+}
+
+.salesListTable td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #333;
+}
+
+.salesListTable tbody tr:hover {
+  background: #f8f9fa;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************PaymentMethod.js***************************/
+.paymentMethodContainer {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.paymentMethodTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.paymentMethodItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.paymentMethodItem:hover {
+  background: #f0f2f5;
+}
+
+.paymentMethodLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paymentMethodIcon {
+  width: 40px;
+  height: 40px;
+  background: #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #495057;
+}
+
+.paymentMethodName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+.paymentMethodRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* New Toggle Switch Styles */
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 85px;
+  height: 26px;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background-color: var(--primaryColor);
+}
+
+.toggleSwitch input:checked + .toggleSlider:before {
+  transform: translateX(24px);
+}
+
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.modalLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.modalInput:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.modalWarning {
+  color: #718096;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
